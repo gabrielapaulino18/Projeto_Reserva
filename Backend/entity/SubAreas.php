@@ -4,7 +4,7 @@ class SubAreas {
     private $id;
     private $areaId;
     private $nomeSubArea;
-    private $cor
+    private $cor;
 
     public function __construct($id, $areaId, $nomeSubArea) {
         $this->id = $id;

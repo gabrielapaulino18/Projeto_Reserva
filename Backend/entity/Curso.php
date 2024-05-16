@@ -26,7 +26,7 @@ class Curso {
     }
 
     public function getSubAreaId() {
-        return $this->subAreaId
+        return $this->subAreaId;
     }
 }
 

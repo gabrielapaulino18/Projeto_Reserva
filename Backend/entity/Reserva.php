@@ -20,7 +20,7 @@ class Reserva {
         $this->horarioInicio = $horarioInicio;
         $this->horarioFim = $horarioFim;
         $this->nomeSala = $nomeSala;
-        $this->nomedocente = $nomeDocente
+        $this->nomedocente = $nomeDocente;
     }
 
     public function getId() {
