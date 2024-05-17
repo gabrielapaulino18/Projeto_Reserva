@@ -377,6 +377,37 @@ function reiniciarArrays() {
     horarios = [];
 }
 
+//menu
+
+var menu = document.getElementById("menu")
+var botoesAltExcl= document.getElementById("excluir")
+var botoesAltExcl1 = document.getElementById("alterar")
 
 
+menu.addEventListener('click', function(){
+   if(botoesAltExcl.style.display === "none"){
+    botoesAltExcl.style.display = "block"
+   } else{
+    botoesAltExcl.style.display = "none"
+   }
+})
+menu.addEventListener('click', function(){
+    if(botoesAltExcl1.style.display === "none"){
+        botoesAltExcl1.style.display = "block"
+       } else{
+        botoesAltExcl1.style.display = "none"
+       }
+})
+
+//excluir modal
+var modalExcluir = document.getElementById("modal-excluir")
+var excluirAceito = document.getElementById("excluir-modal")
+
+botoesAltExcl.addEventListener('click', function(){
+    modalExcluir.style.display = "block"
+})
+
+excluirAceito.addEventListener('click', function(){
+    modalExcluir.style.display = "none"
+})
 

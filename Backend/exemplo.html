@@ -1,96 +1,34 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aula 10</title>
-
-    <style>
-        td,th{
-            border: solid 1px black;
-        }
-    </style>
+    <title>Visualizar</title>
 </head>
-
 <body>
-    <h2>Aula 10 - Arrays/Laço de Repetição (Exercício de Revisão)"</h2>
+    <div class="container">
+   
+ 
+        <div class="filtros">
+          <h2>Filtrar por:</h2>
+          <label for="periodo">Período:</label>
+          <select id="periodo">
+            <option value="manha">Manhã</option>
+            <option value="tarde">Tarde</option>
+            <option value="noite">Noite</option>
+          </select>
+     
+          <label for="data">Data:</label>
+          <input type="date" id="data">
+     
+          <label for="sala">Sala:</label>
+          <select id="sala">
+            <option value="todas">Todas as Salas</option>
+          </select>
 
-    <h3>Formulário de contato</h3>
-    <label for="nome">Nome completo:</label>
-    <input type="text" name="nome" id="nome">
-
-    <label for="email">E-mail</label>
-    <input type="text" name="email" id="email">
-
-    <label for="telefone">Telefone</label>
-    <input type="text" name="telefone" id="telefone">
-
-    <label for="assunto">Assunto</label>
-    <input type="text" name="assunto" id="assunto">
-
-    <label for="mensagem">Mensagem</label>
-    <input type="text" name="mensagem" id="mensagem">
-
-    <button id="enviar">Enviar</button>
-
-
-    <table>
-        <thead>
-            <tr>
-                <th>Nome completo</th>
-                <th>E-mail</th>
-                <th>Telefone</th>
-                <th>Assunto</th>
-                <th>Mensagem</th>
-                
-            </tr>
-        </thead>
-        <tbody id="mostrar-nome"></tbody>
-    </table>
-
-    <script>
-        var nomes = [];
-        var emails = [];
-        var telefones = [];
-        var assuntos = [];
-        var mensagens = [];
-        
-        var mensagem = document.getElementById("mensagem")
-        var assunto = document.getElementById("assunto")
-        var telefone = document.getElementById("telefone")
-        var email = document.getElementById("email")
-        var nome = document.getElementById("nome")
-        var enviar = document.getElementById("enviar")
-        var mostra_nome = document.getElementById("mostrar-nome")
-
-        enviar.addEventListener("click", function () {
-            nomes.push(nome.value);
-            emails.push(email.value);
-            telefones.push(telefone.value);
-            assuntos.push(assunto.value);
-            mensagens.push(mensagem.value);
-
-            mostrarTexto();
-        })
-
-        function mostrarTexto() {
-            var aux = "";
-            for(var cont = 0; cont <nomes.length; cont++){
-                aux += '<tr>'
-                            + '<td>' + nomes[cont] + '</td>'
-                            + '<td>' + emails[cont] + '</td>'
-                            + '<td>' + telefones[cont] + '</td>'
-                            + '<td>' + assuntos[cont] + '</td>'
-                            + '<td>' + mensagens[cont] + '</td>'
-        
-            }
-            mostra_nome.innerHTML = aux;
-        }
-
-    </script>
-
-
+          <a href="index.html"><button>Admin</button></a>
+         
+          </div>
+      </div>
 </body>
-
 </html>

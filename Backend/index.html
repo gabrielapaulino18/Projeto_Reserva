@@ -13,12 +13,12 @@
 <body>
     <header>
         <div id="menu">
-            <div><img src="assets/logo_senac_default.png" alt=""></div>
+            <div id="abrir-menu"><img src="assets/logo_senac_default.png" alt=""></div>
             <span><img src="assets/menu_24dp_FILL0_wght400_GRAD0_opsz24.png"></span>
 
         </div>
-        <button id="alterar" class="btn-alterar">Alterar</button>
-        <button id="excluir" class="btn-alterar">Excluir</button>
+        <button id="alterar" class="btn-alterar" style="display: none;">Alterar</button>
+        <button id="excluir" class="btn-alterar" style="display: none;">Excluir</button>
         <nav id="nav-direito">
             <img src="assets/notifications_24dp_FILL0_wght400_GRAD0_opsz24.png">
             <div id="aba-login" style="display: contents;">
@@ -1358,6 +1358,8 @@
         </div>
 
 
+    
+
 
 
         </div>
@@ -1372,6 +1374,123 @@
                     <input type="password" id="senha" value="">
                     <button id="btnlogin">Login</button>
                 </div>
+            </div>
+        </div>
+        <!--Modal Exlcuir-->
+        <div id="modal-excluir">
+            <div id="container-excluir">
+                <button id="fechar-modalExcluir">X</button>
+                <h2>Deletar uma Reserva</h2>
+                <div id="form-excluir">
+                   <p>Curso(Sigla)</p>
+                   <p>Docente</p>
+                    <p>Data</p>
+                </div>
+                <div id="resultado-form">
+                    <select id="sigla" class="select-modal">
+                        <option value="ADM1">ADM1</option>
+                        <option value="ADM2">ADM2</option>
+                        <option value="ADM09">ADM09</option>
+                        <option value="ADM10">ADM10</option>
+                        <option value="ADM11">ADM11</option>
+                        <option value="ADM12">ADM12</option>
+                        <option value="ADM13">ADM13</option>
+                        <option value="ADM14">ADM14</option>
+                        <option value="ADM15">ADM15</option>
+                        <option value="ADM16">ADM16</option>
+                        <option value="FPGE01">FPGE01</option>
+                        <option value="FPGE02">FPGE02</option>
+                        <option value="GDT01">GDT01</option>
+                        <option value="PNP01">PNP01</option>
+                        <option value="GQP01">GQP01</option>
+                        <option value="FIN02">FIN02</option>
+                        <option value="EF02">EF02</option>
+                        <option value="EF03">EF03</option>
+                        <option value="ACPRT02">ACPRT02</option>
+                        <option value="ACRED01">ACRED01</option>
+                        <option value="ACRED02">ACRED02</option>
+                        <option value="GTO1">GTO1</option>
+                        <option value="FNF02">FNF02</option>
+                        <option value="FNF03">FNF03</option>
+                        <option value="ACPRT03">ACPRT03</option>
+                        <option value="NCNC01">NCNC01</option>
+                        <option value="ANF01">ANF01</option>
+                        <option value="AF03">AF03</option>
+                        <option value="APF01">APF01</option>
+                        <option value="RH04">RH04</option>
+                        <option value="RH05">RH05</option>
+                        <option value="RH06">RH06</option>
+                        <option value="RH07">RH07</option>
+                        <option value="RH08">RH08</option>
+                        <option value="RH">RH</option>
+                        <option value="AP01">AP01</option>
+                        <option value="FATD01">FATD01</option>
+                        <option value="CFE01">CFE01</option>
+                        <option value="CAO01">CAO01</option>
+                        <option value="DGFC01">DGFC01</option>
+                        <option value="GCO01">GCO01</option>
+                        <option value="RHA01">RHA01</option>
+                        <option value="FPL01m">FPL01m</option>
+                        <option value="UDES">UDES</option>
+                        <option value="LS02">LS02</option>
+                        <option value="LS03">LS03</option>
+                        <option value="GCS02">GCS02</option>
+                        <option value="IAP01">IAP01</option>
+                        <option value="LOG05">LOG05</option>
+                        <option value="LOG07">LOG07</option>
+                        <option value="LOG06">LOG06</option>
+                        <option value="CAM01">CAM01</option>
+                        <option value="GLE01">GLE01</option>
+                        <option value="MFMEI01">MFMEI01</option>
+                        <option value="IM02">IM02</option>
+                        <option value="MKT01">MKT01</option>
+                        <option value="EPND01">EPND01</option>
+                        <option value="CVRS02">CVRS02</option>
+                        <option value="TN01">TN01</option>
+                        <option value="TPITCH01">TPITCH01</option>
+                        <option value="VMMV01">VMMV01</option>
+                        <option value="PC01">PC01</option>
+                        <option value="IE01">IE01</option>
+                        <option value="GPV01">GPV01</option>
+                        <option value="TII04">TII04</option>
+                        <option value="TII05">TII05</option>
+                        <option value="TII06">TII06</option>
+                        <option value="TII07">TII07</option>
+                        <option value="TII08">TII08</option>
+                        <option value="CCNA1">CCNA1</option>
+                        <option value="CCNA2">CCNA2</option>
+                        <option value="CCNA3">CCNA3</option>
+                        <option value="FCP">FCP</option>
+                        <option value="EMDE01">EMDE01</option>
+                        <option value="RHA01">RHA01</option>
+
+                    </select>
+                    <select id="docente" class="select-modal">
+                        <option value=""></option>
+                        <option value="Luana">Luana</option>
+                        <option value="Aécio">Aécio</option>
+                        <option value="Celso">Celso</option>
+                        <option value="Regina">Regina</option>
+                        <option value="Eduardo">Eduardo</option>
+                        <option value="Michael">Michael</option>
+                        <option value="Sirde">Sirde</option>
+                        <option value="Fernando">Fernando</option>
+                        <option value="Júlio">Júlio</option>
+                        <option value="Carlos">Carlos</option>
+                        <option value="Pedro">Pedro</option>
+                        <option value="Eric">Eric</option>
+                        <option value="Andrezza">Andrezza</option>
+                        <option value="Guilherme">Guilherme</option>
+                        <option value="Kaue">Kaue</option>
+                        <option value="Paulo">Paulo</option>
+                        <option value="Roberto">Roberto</option>
+                        <option value="Levi">Levi</option>
+                        <option value="Bruno">Bruno</option>
+                        <option value="Fagner">Fagner</option>
+                    </select>
+                    <input id="date" type="date" value="">
+                </div>
+                <button id="excluir-modal">Excluir</button>
             </div>
         </div>
     </main>
