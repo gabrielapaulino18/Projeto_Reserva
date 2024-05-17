@@ -1,6 +1,7 @@
 <?php
 
 require_once 'config/Database.php';
+require_once 'index.html';
 require_once 'entity/Usuario.php';
 require_once 'BaseDAO.php';
 
