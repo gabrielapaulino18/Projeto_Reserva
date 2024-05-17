@@ -23,7 +23,7 @@ class ReservaDAO implements BaseDAO {
             $stmt->execute();
 
 
-            $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+            $reserva = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
             return $reserva ?
@@ -35,8 +35,8 @@ class ReservaDAO implements BaseDAO {
                     $reserva['DataFim'],
                     $reserva['HorarioInicio'],
                     $reserva['HorarioFim'],
-                    $reserva['NomeSala'],
-                    $reserva['NomeDocente']
+                    $reserva['NumeroSala'],
+                    
                 )
                 : null;
         } catch (PDOException $e) {
@@ -63,8 +63,8 @@ class ReservaDAO implements BaseDAO {
                     $reserva['DataFim'],
                     $reserva['HorarioInicio'],
                     $reserva['HorarioFim'],
-                    $reserva['NomeSala'],
-                    $reserva['NomeDocente']);
+                    $reserva['NumeroSala']);
+                    
     }, $reservas);
         } catch (PDOException $e) {
             return [];
@@ -75,42 +75,43 @@ class ReservaDAO implements BaseDAO {
     public function create($reserva)
     {
         try {
-           
-            $sql = "INSERT INTO Reserva(TurmaId , SalaId , DataInicio , DataFim , HorarioInicio , HorarioFim , NomeSala , NomeDocente)
-                    VALUES(:TurmaId, :SalaId, :DataInicio, :DataFim, :HorarioInicio, :HorarioFim, :NomeSala, :NomeDocente)";
-
-            
+            $sql = "INSERT INTO Reserva (TurmaId, SalaId, DataInicio, DataFim, HorarioInicio, HorarioFim, NumeroSala)
+                    VALUES (:TurmaId, :SalaId, :DataInicio, :DataFim, :HorarioInicio, :HorarioFim, :NumeroSala)";
+    
             $stmt = $this->db->prepare($sql);
-
-           
+    
+            // Obtendo os valores das propriedades da reserva
             $TurmaId = $reserva->getTurmaId();
             $SalaId = $reserva->getSalaId();
             $DataInicio = $reserva->getDataInicio();
             $DataFim = $reserva->getDataFim();
             $HorarioInicio = $reserva->getHorarioInicio();
-            $HorarioFim = $reserva->getHorafioFim();
-            $NomeSala = $reserva->getNomeSala();
-            $NomeDocente = $reserva->getNomeDocente();
-
-            $stmt->bindParam(':TurmaId', $reserva->getTurmaId());
-            $stmt->bindParam(':SalaId', $reserva->getSalaId());
-            $stmt->bindParam(':DataInicio', $reserva->getDataInicio());
-            $stmt->bindParam(':DataFim', $reserva->getDataFim());
-            $stmt->bindParam(':HorarioInicio', $reserva->getHorarioInicio());
-            $stmt->bindParam(':HorarioFim', $reserva->getHorarioFim());
-            $stmt->bindParam(':NomeSala', $reserva->getNomeSala());
-            $stmt->bindParam(':NomeDocente', $reserva->getNomeDocente());
-
+            $HorarioFim = $reserva->getHorarioFim();
+            $NumeroSala = $reserva->getNumeroSala();
+           
+    
+            // Substituindo as variáveis no comando SQL
+            $stmt->bindParam(':TurmaId', $TurmaId);
+            $stmt->bindParam(':SalaId', $SalaId);
+            $stmt->bindParam(':DataInicio', $DataInicio);
+            $stmt->bindParam(':DataFim', $DataFim);
+            $stmt->bindParam(':HorarioInicio', $HorarioInicio);
+            $stmt->bindParam(':HorarioFim', $HorarioFim);
+            $stmt->bindParam(':NumeroSala', $NumeroSala);
             
+    
+            // Executando o comando SQL
             $stmt->execute();
-
-          
+    
             return true;
         } catch (PDOException $e) {
-            
+            // Em caso de erro, imprima o erro e retorne false
+            echo "Erro ao inserir reserva: " . $e->getMessage();
             return false;
         }
     }
+    
+
 
     public function update($reserva)
     {
@@ -123,8 +124,7 @@ class ReservaDAO implements BaseDAO {
             }
 
             $sql = "UPDATE Reserva SET TurmaId = :TurmaId, SalaId = :SalaId, DataInicio = :DataInicio,
-            HorarioInicio = :HorarioInicio, HorarioFim = :HorarioFim, NomeSala = :NomeSala, NomeDocente = :NomeDocente
-                    WHERE id = :id";
+            HorarioInicio = :HorarioInicio, HorarioFim = :HorarioFim, NumeroSala = :NumeroSala WHERE id = :id";
 
             $stmt = $this->db->prepare($sql);
             $id = $reserva->getId();
@@ -134,16 +134,16 @@ class ReservaDAO implements BaseDAO {
             $DataFim = $reserva->getDataFim();
             $HorarioInicio = $reserva->getHorarioInicio();
             $HorarioFim = $reserva->getHorarioFim();
-            $NomeSala = $reserva->getNomeSala();
-            $NomeDocente = $reserva->getNomeDocente();
+            $NumeroSala = $reserva->getNumeroSala();
+       
 
             $stmt->bindParam(':id', $id);
             $stmt->bindParam(':TurmaId', $TurmaId);
             $stmt->bindParam(':SalaId', $SalaId);
             $stmt->bindParam(':DataInicio', $DataInicio);
             $stmt->bindParam(':DataFim', $DataFim);
-            $stmt->bindParam(':NomeSala', $NomeSala);
-            $stmt->bindParam(':NomeDocente', $NomeDocente);
+            $stmt->bindParam(':NumeroSala', $NumeroSala);
+      
 
             $stmt->execute();
 

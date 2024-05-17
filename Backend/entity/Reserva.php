@@ -8,10 +8,10 @@ class Reserva {
     private $dataFim;
     private $horarioInicio;
     private $horarioFim;
-    private $nomeSala;
-    private $nomeDocente;
+    private $numeroSala;
+    
 
-    public function __construct($id, $turmaId, $salaId, $dataFim, $dataInicio, $horarioFim, $horarioInicio, $nomeSala, $nomeDocente) {
+    public function __construct($id, $turmaId, $salaId, $dataFim, $dataInicio, $horarioFim, $horarioInicio, $numeroSala) {
         $this->id = $id;
         $this->turmaId = $turmaId;
         $this->salaId = $salaId;
@@ -19,8 +19,8 @@ class Reserva {
         $this->dataFim = $dataFim;
         $this->horarioInicio = $horarioInicio;
         $this->horarioFim = $horarioFim;
-        $this->nomeSala = $nomeSala;
-        $this->nomedocente = $nomeDocente;
+        $this->numeroSala = $numeroSala;
+        
     }
 
     public function getId() {
@@ -51,13 +51,11 @@ class Reserva {
         return $this->horarioFim;
     }
 
-    public function getNomeSala() {
-        return $this->nomeSala;
+    public function getNumeroSala() {
+        return $this->numeroSala;
     }
 
-    public function getNomeDocente() {
-        return $this->nomeDocente;
-    }
+   
 
 }
 
